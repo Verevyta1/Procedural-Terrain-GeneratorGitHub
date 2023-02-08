@@ -3,10 +3,12 @@ using System.Collections;
 
 public static class Noise {
 
+	//generates the noisemap
+
 	public static float[,] GenerateNoiseMap(int mapWidth, int mapHeight, int seed, float scale, int octaves, float persistance, float lacunarity, Vector2 offset) {
 		float[,] noiseMap = new float[mapWidth,mapHeight];
 
-		System.Random prng = new System.Random (seed);
+		System.Random prng = new(seed);
 		Vector2[] octaveOffsets = new Vector2[octaves];
 		for (int i = 0; i < octaves; i++) {
 			float offsetX = prng.Next (-100000, 100000) + offset.x;
@@ -33,10 +35,10 @@ public static class Noise {
 				float noiseHeight = 0;
 
 				for (int i = 0; i < octaves; i++) {
-					float sampleX = (x-halfWidth) / scale * frequency + octaveOffsets[i].x;
-					float sampleY = (y-halfHeight) / scale * frequency + octaveOffsets[i].y;
+                    float sampleX = (x - halfWidth + octaveOffsets[i].x) / scale * frequency;
+                    float sampleY = (y - halfHeight + octaveOffsets[i].y) / scale * frequency;
 
-					float perlinValue = Mathf.PerlinNoise (sampleX, sampleY) * 2 - 1;
+                    float perlinValue = Mathf.PerlinNoise (sampleX, sampleY) * 2 - 1;
 					noiseHeight += perlinValue * amplitude;
 
 					amplitude *= persistance;

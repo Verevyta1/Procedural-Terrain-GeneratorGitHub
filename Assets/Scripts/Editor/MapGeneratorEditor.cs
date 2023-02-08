@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 [CustomEditor(typeof(MapGenerator))]
 public class MapGeneratorEditor : Editor
 {
-
+    //makes the generate button in the inspector
     public override void OnInspectorGUI()
     {
         MapGenerator mapGen = (MapGenerator)target;

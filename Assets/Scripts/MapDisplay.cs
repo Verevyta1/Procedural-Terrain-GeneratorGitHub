@@ -7,6 +7,9 @@ public class MapDisplay : MonoBehaviour {
 	public MeshFilter meshFilter;
 	public MeshRenderer meshRenderer;
 
+
+	//draws the textures on the screen
+
 	public void DrawTexture(Texture2D texture) {
 		textureRender.sharedMaterial.mainTexture = texture;
 		textureRender.transform.localScale = new Vector3 (texture.width, 1, texture.height);

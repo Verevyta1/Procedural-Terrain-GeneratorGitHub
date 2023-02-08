@@ -3,13 +3,14 @@ using System.Collections;
 
 public static class MeshGenerator {
 
+	//generates the mesh and creates all the triangles and vertecies from the height and width values
 	public static MeshData GenerateTerrainMesh(float[,] heightMap, float heightMultiplier) {
 		int width = heightMap.GetLength (0);
 		int height = heightMap.GetLength (1);
 		float topLeftX = (width - 1) / -2f;
 		float topLeftZ = (height - 1) / 2f;
 
-		MeshData meshData = new MeshData (width, height);
+		MeshData meshData = new(width, height);
 		int vertexIndex = 0;
 
 		for (int y = 0; y < height; y++) {
@@ -53,10 +54,12 @@ public class MeshData {
 	}
 
 	public Mesh CreateMesh() {
-		Mesh mesh = new Mesh ();
-		mesh.vertices = vertices;
-		mesh.triangles = triangles;
-		mesh.uv = uvs;
+		Mesh mesh = new()
+		{
+			vertices = vertices,
+			triangles = triangles,
+			uv = uvs
+		};
 		mesh.RecalculateNormals ();
 		return mesh;
 	}
