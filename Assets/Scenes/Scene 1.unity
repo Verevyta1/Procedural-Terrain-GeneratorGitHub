@@ -1143,6 +1143,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 290223645}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnRotateRightButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Sliders, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005439864515709566, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1038191943421513500, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 5
@@ -1226,6 +1254,10 @@ PrefabInstance:
     - target: {fileID: 1338185221008829524, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767814450355804482, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1767814450355804482, guid: 326a61332ae6ae94fbf8ae992f0c9af6, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
