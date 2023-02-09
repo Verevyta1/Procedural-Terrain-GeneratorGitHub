@@ -9,7 +9,7 @@ public static class MeshGenerator {
 		int height = heightMap.GetLength (1);
 		float topLeftX = (width - 1) / -2f;
 		float topLeftZ = (height - 1) / 2f;
-
+		
 		MeshData meshData = new(width, height);
 		int vertexIndex = 0;
 
