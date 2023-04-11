@@ -29,6 +29,11 @@ public class Sliders : MonoBehaviour
     public TMP_InputField yOffsetInputField;
     public TMP_InputField meshHeightInputField;
 
+    //
+    public TMP_InputField meshScaleXInputField;
+    public TMP_InputField meshScaleYInputField;
+
+
     public Button showMeshButton;
     public Button showColorMapButton;
     public Button showNoiseMapButton;
@@ -79,6 +84,8 @@ public class Sliders : MonoBehaviour
         mesh.transform.Rotate(0.0f,  -0.1f, 0.0f, Space.Self);
         plane.transform.Rotate(0.0f,  -0.1f, 0.0f, Space.Self);
 
+        
+
     }
 
     //called when the show mesh button is pressed
@@ -87,7 +94,7 @@ public class Sliders : MonoBehaviour
         mesh.SetActive(true);
         plane.SetActive(false);
         mapGenerator.drawMode = MapGenerator.DrawMode.Mesh;
-        mapGenerator.GenerateMap();
+        mapGenerator.DrawMapInEditor();
         showMeshButton.GetComponent<Image>().color = Color.green;
         showColorMapButton.GetComponent<Image>().color = Color.white;
         showNoiseMapButton.GetComponent<Image>().color = Color.white;
@@ -99,7 +106,7 @@ public class Sliders : MonoBehaviour
         mesh.SetActive(false);
         plane.SetActive(true);
         mapGenerator.drawMode = MapGenerator.DrawMode.ColourMap;
-        mapGenerator.GenerateMap();
+        mapGenerator.DrawMapInEditor();
         showMeshButton.GetComponent<Image>().color = Color.white;
         showColorMapButton.GetComponent<Image>().color = Color.green;
         showNoiseMapButton.GetComponent<Image>().color = Color.white;
@@ -112,7 +119,7 @@ public class Sliders : MonoBehaviour
         mesh.SetActive(false);
         plane.SetActive(true);
         mapGenerator.drawMode = MapGenerator.DrawMode.NoiseMap;
-        mapGenerator.GenerateMap();
+        mapGenerator.DrawMapInEditor();
         showMeshButton.GetComponent<Image>().color = Color.white;
         showColorMapButton.GetComponent<Image>().color = Color.white;
         showNoiseMapButton.GetComponent<Image>().color = Color.green;
@@ -185,6 +192,9 @@ public class Sliders : MonoBehaviour
         mapGenerator.mapHeight = Convert.ToInt32(heightInputField.text);
     }
 
-
+    public void MeshScale()
+    {
+        
+    }
    
 }

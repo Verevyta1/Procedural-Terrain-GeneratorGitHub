@@ -13,17 +13,40 @@ public class MapGenerator : MonoBehaviour {
 	public int octaves;
 	[Range(0,1)]
 	public float persistance;
+	[Range(0, 6)]
+	public int levelOfDetail;
 	public float lacunarity;
 
 	public int seed;
 	public Vector2 offset;
 	public float meshHeightMultiplier;
+	public AnimationCurve meshHeightCurve;
 
 	public bool autoUpdate;
 
 	public TerrainType[] regions;
 
-	public void GenerateMap() {
+
+	public void DrawMapInEditor()
+	{
+		MapData mapData = GenerateMapData();
+        MapDisplay display = FindObjectOfType<MapDisplay>();
+        if (drawMode == DrawMode.NoiseMap)
+        {
+            display.DrawTexture(TextureGenerator.TextureFromHeightMap(mapData.noiseMap));
+        }
+        else if (drawMode == DrawMode.ColourMap)
+        {
+            display.DrawTexture(TextureGenerator.TextureFromColourMap(mapData.colourMap, mapWidth, mapHeight));
+        }
+        else if (drawMode == DrawMode.Mesh)
+        {
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(mapData.noiseMap, meshHeightMultiplier, meshHeightCurve, levelOfDetail), TextureGenerator.TextureFromColourMap(mapData.colourMap, mapWidth, mapHeight));
+        }
+		
+    }
+
+	 MapData GenerateMapData() {
 		float[,] noiseMap = Noise.GenerateNoiseMap (mapWidth, mapHeight, seed, noiseScale, octaves, persistance, lacunarity, offset);
 
 		Color32[] colourMap = new Color32[mapWidth * mapHeight];
@@ -38,16 +61,11 @@ public class MapGenerator : MonoBehaviour {
 				}
 			}
 		}
+
+
+		return new MapData(noiseMap, colourMap);
 		
 
-		MapDisplay display = FindObjectOfType<MapDisplay> ();
-		if (drawMode == DrawMode.NoiseMap) {
-			display.DrawTexture (TextureGenerator.TextureFromHeightMap (noiseMap));
-		} else if (drawMode == DrawMode.ColourMap) {
-			display.DrawTexture (TextureGenerator.TextureFromColourMap (colourMap, mapWidth, mapHeight));
-		} else if (drawMode == DrawMode.Mesh) {
-			display.DrawMesh (MeshGenerator.GenerateTerrainMesh (noiseMap, meshHeightMultiplier), TextureGenerator.TextureFromColourMap (colourMap, mapWidth, mapHeight));
-		}
 	}
 
     
@@ -64,7 +82,7 @@ public class MapGenerator : MonoBehaviour {
 		if (octaves < 0) {
 			octaves = 0;
 		}
-		
+
 		
 
 		
@@ -76,4 +94,17 @@ public struct TerrainType {
 	public string name;
 	public float height;
 	public Color32 colour;
+}
+
+public struct MapData {
+	public float[,] noiseMap;
+	public Color32[] colourMap;
+
+	//heightMap is noiseMap
+	public MapData(float[,] noiseMap, Color32[] colourMap)
+	{
+		this.noiseMap = noiseMap;
+		this.colourMap = colourMap;
+	}
+
 }
