@@ -15,6 +15,7 @@ This tool can generate a mesh for you to export.
 # Download the Application
 
 Click [here](<Builds>) to download the latest version of the application.
+Download the builds folder and run the ProceduralTerrainGenerator.exe (ignore everything else)
 
 # Contributing
 We welcome contributions to improve the Procedural Terrain Generator. Here's how you can get involved:
